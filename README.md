@@ -40,7 +40,7 @@ The MCP server lets AI agents query county data programmatically.
 ```bash
 cd mcp-server
 npm install
-CENSUS_API_KEY=your_key node server.js
+CENSUS_API_KEY=your_key SOCRATA_APP_TOKEN=your_token node server.js
 ```
 
 Tools: `get_county`, `compare_counties`, `rank_counties`. See [county-comparer-skill.md](./county-comparer-skill.md) for full documentation.

@@ -28,9 +28,17 @@ export function perCapita(count, population, scale = 100000) {
 export function safeInt(val)   { const n = parseInt(val);   return isNaN(n) ? null : n; }
 export function safeFloat(val) { const n = parseFloat(val); return isNaN(n) ? null : n; }
 
+function getSocrataToken() {
+  try { return import.meta.env.VITE_SOCRATA_APP_TOKEN ?? ''; } catch {}
+  try { return process.env.SOCRATA_APP_TOKEN ?? ''; } catch {}
+  return '';
+}
+
 export async function odp(path) {
   try {
-    const res = await fetch(`${TEXAS_ODP}/${path}`);
+    const token = getSocrataToken();
+    const headers = token ? { 'X-App-Token': token } : {};
+    const res = await fetch(`${TEXAS_ODP}/${path}`, { headers });
     return res.ok ? await res.json() : null;
   } catch { return null; }
 }
