@@ -1,0 +1,17 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [tailwindcss(), react()],
+  server: {
+    proxy: {
+      // In dev, proxy /api/* to a local Express shim so the serverless
+      // function runs without needing `vercel dev`.
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
+    },
+  },
+})

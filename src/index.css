@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-sage: var(--sage);
+  --color-clay: var(--clay);
+  --font-display: "Rye", serif;
+  --font-serif: "DM Serif Display", serif;
+  --font-body: "Work Sans", sans-serif;
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Dusty Western palette */
+  --background: oklch(0.92 0.04 80);          /* cream */
+  --foreground: oklch(0.27 0.04 50);          /* walnut */
+  --paper: oklch(0.88 0.05 75);               /* darker cream */
+  --ink: oklch(0.22 0.03 50);
+  --clay: oklch(0.6 0.13 40);                 /* terracotta */
+  --sage: oklch(0.62 0.06 130);               /* sage green */
+
+  --card: oklch(0.95 0.03 80);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.95 0.03 80);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.6 0.13 40);
+  --primary-foreground: oklch(0.97 0.02 80);
+  --secondary: oklch(0.85 0.04 75);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.85 0.03 75);
+  --muted-foreground: oklch(0.45 0.04 55);
+  --accent: oklch(0.62 0.06 130);
+  --accent-foreground: oklch(0.97 0.02 80);
+  --destructive: oklch(0.55 0.2 30);
+  --destructive-foreground: oklch(0.97 0.02 80);
+  --border: oklch(0.45 0.05 50 / 25%);
+  --input: oklch(0.45 0.05 50 / 25%);
+  --ring: oklch(0.6 0.13 40);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    /* paper grain texture */
+    background-image:
+      radial-gradient(oklch(0.4 0.04 50 / 0.05) 1px, transparent 1px),
+      radial-gradient(oklch(0.4 0.04 50 / 0.04) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+  .double-rule {
+    border-top: 1px solid var(--color-foreground);
+    box-shadow: 0 3px 0 -1px var(--color-foreground);
+  }
+}
