@@ -268,6 +268,7 @@ MCP server
 rate-limiting
 - The MCP server has no caching either, so repeated calls for the same
 county fetch fresh data every time
+- Currently only locally usable
 
 Scoring
 - All metrics are weighted equally — median income counts the same as
@@ -292,7 +293,7 @@ desktop widths
 ## Next Steps
 
 1. Fix the limitations that are not architectural decisions (e.g. the UI limitations, the request caching, and the custom metric persistence)
-2. Push the project to production
+2. Push the project to production (hosting the website, getting a domain name, making the MCP server public)
 3. Push for open source contributions to this tool
 
 ---
