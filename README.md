@@ -198,7 +198,7 @@ fallback fonts in the downloaded image
 - No mobile layout — the battle table and metrics page are designed for
 desktop widths
 
---
+---
 
 ## Next Steps
 
@@ -206,7 +206,7 @@ desktop widths
 2. Push the project to production
 3. Push for open source contributions to this tool
 
---
+---
 
 ## Data Attribution
 
